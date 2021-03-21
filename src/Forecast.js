@@ -9,28 +9,52 @@ export default function Forecast() {
           <h5>
             Sat.
             <br />
-            75° F <i className="fas fa-sun"></i>
+            75° F{" "}
+            <ReactAnimatedWeather
+              icon="CLEAR_DAY"
+              color="goldenrod"
+              size={30}
+              animate={true}
+            />
           </h5>
         </div>
         <div className="col">
           <h5>
             Sun.
             <br />
-            66 ° F <i className="fas fa-cloud-sun"></i>
+            66 ° F{" "}
+            <ReactAnimatedWeather
+              icon="PARTLY_CLOUDY_DAY"
+              color="goldenrod"
+              size={30}
+              animate={true}
+            />
           </h5>
         </div>
         <div className="col">
           <h5>
             Mon.
             <br />
-            65° F <i className="fas fa-cloud"></i>
+            65° F{" "}
+            <ReactAnimatedWeather
+              icon="CLOUDY"
+              color="goldenrod"
+              size={30}
+              animate={true}
+            />
           </h5>
         </div>
         <div className="col">
           <h5>
             Tues.
             <br />
-            60° F <i className="fas fa-cloud-showers-heavy"></i>
+            60° F{" "}
+            <ReactAnimatedWeather
+              icon="RAIN"
+              color="goldenrod"
+              size={30}
+              animate={true}
+            />
           </h5>
         </div>
       </div>

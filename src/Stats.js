@@ -16,7 +16,12 @@ export default function Stats() {
         </div>
         <div className="col-6">
           <h1>
-            <i className="fas fa-sun"></i>
+            <ReactAnimatedWeather
+              icon="CLEAR_DAY"
+              color="goldenrod"
+              size={30}
+              animate={true}
+            />
             <span id="temperature">77</span>
             <span className="units">
               <a href="#" id="fahrenheit">
