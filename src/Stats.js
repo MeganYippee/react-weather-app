@@ -24,14 +24,14 @@ export default function Stats() {
             />
             <span id="temperature">77</span>
             <span className="units">
-              <a href="#" id="fahrenheit">
+              <span href="#" id="fahrenheit">
                 °F
-              </a>{" "}
+              </span>{" "}
               |
-              <a href="#" id="celcius">
+              <span href="#" id="celcius">
                 {" "}
                 °C
-              </a>
+              </span>
             </span>
             <br />
             <div className="content" align="center">
