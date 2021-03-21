@@ -1,0 +1,46 @@
+h1 {
+  font-family: work sans, sans-serif;
+  font-size: 50px;
+  padding: 20px;
+}
+h3 {
+  font-family: poppins, sans-serif;
+  padding-top: 30px;
+  text-align: center;
+}
+.top {
+  padding-bottom: 40px;
+}
+.card {
+  font-family: poppins, sans-serif;
+  display: block;
+  margin: 0px auto;
+}
+.card {
+  border-radius: 20px;
+}
+.card-body {
+  color: #f1faee;
+  border: solid #ebfaff;
+  border-radius: 20px;
+  background-color: #1d3557;
+  max-width: 750px;
+}
+.city {
+  text-align: center;
+}
+.next {
+  font-size: 20px;
+  padding: 40px auto;
+  text-align: center;
+}
+.bottom {
+  padding-bottom: 30px;
+}
+.card-text {
+  padding-top: 30px;
+  margin: 0px;
+}
+.fas {
+  color: #ffae03;
+}
