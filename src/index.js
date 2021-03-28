@@ -15,7 +15,7 @@ ReactDOM.render(
         Open source code
       </a>
       , by{" "}
-      <a href="https://github.com/MeganYippee" rel="noreferrer" target="_blank">
+      <a href="https://www.meganyipart.com/" rel="noreferrer" target="_blank">
         Megan Yip
       </a>
     </p>
