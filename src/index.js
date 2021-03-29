@@ -5,7 +5,7 @@ import Main from "./Main";
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <StrictMode>
-    <Main />
+    <Main defaultCity="San Diego" />
     <p>
       <a
         href="https://github.com/MeganYippee/react-weather-app"

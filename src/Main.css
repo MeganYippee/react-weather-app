@@ -8,6 +8,18 @@ h3 {
   padding-top: 30px;
   text-align: center;
 }
+.search {
+  border: #0fa3b1;
+  border-radius: 10px;
+}
+.search {
+  border: #0fa3b1;
+  border-radius: 10px;
+}
+.btn-lg {
+  font-size: 38px;
+  padding: 5px;
+}
 .top {
   padding-bottom: 40px;
 }
@@ -43,4 +55,7 @@ h3 {
 }
 .fas {
   color: #ffae03;
+}
+#temperature {
+  padding: 5px;
 }

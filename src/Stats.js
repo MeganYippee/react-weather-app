@@ -3,7 +3,8 @@ import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
 import "./Stats.css";
 
-export default function Stats() {
+export default function Stats(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
     console.log(response);
@@ -17,6 +18,21 @@ export default function Stats() {
     });
   }
 
+  function search() {
+    let apiKey = `2e24fad2691944b008429f223f37670a`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  function handleNewCity(event) {
+    setCity(event.target.value);
+    search(city);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="container top">
@@ -25,7 +41,7 @@ export default function Stats() {
             <h4>
               Humidity: {weatherData.humidity}%
               <br />
-              Wind: {weatherData.wind}
+              Wind: {Math.round(weatherData.wind)} mph
               <br />
               <span className="text-capitalize">{weatherData.description}</span>
             </h4>
@@ -42,11 +58,21 @@ export default function Stats() {
                 {Math.round(weatherData.temperature)}
               </span>
               <span className="units">
-                <button rel="noreferrer" href="#" id="fahrenheit">
+                <button
+                  className="btn btn-link btn-lg"
+                  rel="noreferrer"
+                  href="#"
+                  id="fahrenheit"
+                >
                   °F
                 </button>{" "}
                 |
-                <button rel="noreferrer" href="#" id="celcius">
+                <button
+                  className="btn btn-link btn-lg"
+                  rel="noreferrer"
+                  href="#"
+                  id="celcius"
+                >
                   {" "}
                   °C
                 </button>
@@ -64,14 +90,24 @@ export default function Stats() {
             </h1>
           </div>
         </div>
+
+        <div>
+          <p className="card-text">Search for another city</p>
+          <form id="search" action="text" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Search for a city"
+              name="search"
+              className="search"
+              onChange={handleNewCity}
+              id="city-search-input"
+            />
+          </form>
+        </div>
       </div>
     );
   } else {
-    let apiKey = `2e24fad2691944b008429f223f37670a`;
-    let city = `San Diego`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-    axios.get(apiUrl).then(handleResponse);
-
+    search();
     return "Loading...";
   }
 }
