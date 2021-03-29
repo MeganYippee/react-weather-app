@@ -29,12 +29,28 @@ export default function Header(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    search();
   }
 
   function handleNewCity(event) {
     setCity(event.target.value);
-    search();
   }
+
+  let form = (
+    <div className="seach">
+      <p className="card-text">Search for another city</p>
+      <form id="search" action="text" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Search for a city"
+          name="search"
+          className="search"
+          onChange={handleNewCity}
+          id="city-search-input"
+        />
+      </form>
+    </div>
+  );
 
   if (weatherData.ready) {
     return (
@@ -104,22 +120,11 @@ export default function Header(props) {
                 </h1>
               </div>
             </div>
-            <div className="seach">
-              <p className="card-text">Search for another city</p>
-              <form id="search" action="text" onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  placeholder="Search for a city"
-                  name="search"
-                  className="search"
-                  onChange={handleNewCity}
-                  id="city-search-input"
-                />
-              </form>
-            </div>
           </div>
+
           <p className="next">In the next few days...</p>
           <Forecast />
+          {form}
         </div>
       </div>
     );
