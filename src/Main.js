@@ -3,7 +3,6 @@ import "./Main.css";
 import axios from "axios";
 import Forecast from "./Forecast";
 import Formatted from "./Formatted";
-import ReactAnimatedWeather from "react-animated-weather";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function Header(props) {
@@ -17,6 +16,7 @@ export default function Header(props) {
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
       date: new Date(response.data.dt * 1000),
+      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       city: response.data.name,
     });
   }
@@ -78,12 +78,12 @@ export default function Header(props) {
               </div>
               <div className="col-6">
                 <h1>
-                  <ReactAnimatedWeather
-                    icon="CLEAR_DAY"
-                    color="goldenrod"
-                    size={30}
-                    animate={true}
+                  <img
+                    className="icon"
+                    src={weatherData.icon}
+                    alt="weather icon"
                   />
+
                   <span id="temperature">
                     {Math.round(weatherData.temperature)}
                   </span>

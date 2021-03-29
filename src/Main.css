@@ -8,17 +8,20 @@ h3 {
   padding-top: 30px;
   text-align: center;
 }
-.search {
-  border: #0fa3b1;
-  border-radius: 10px;
+.icon {
+  display: block;
+  font-size: small;
 }
 .search {
   border: #0fa3b1;
   border-radius: 10px;
 }
-.btn-lg {
+.search {
+  border: #0fa3b1;
+  border-radius: 10px;
+}
+.btn-link {
   font-size: 38px;
-  padding: 5px;
 }
 .top {
   padding-bottom: 40px;
