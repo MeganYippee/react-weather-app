@@ -8,6 +8,9 @@ h3 {
   padding-top: 30px;
   text-align: center;
 }
+.col-6 canvas {
+  height: fit-content;
+}
 .icon {
   display: block;
   font-size: small;
@@ -20,8 +23,9 @@ h3 {
   border: #0fa3b1;
   border-radius: 10px;
 }
-.btn-link {
+.btn-lg {
   font-size: 38px;
+  padding: 0px;
 }
 .top {
   padding-bottom: 40px;
@@ -50,15 +54,13 @@ h3 {
   text-align: center;
 }
 .bottom {
-  padding-bottom: 30px;
+  padding-bottom: 15px;
 }
 .card-text {
   padding-top: 30px;
   margin: 0px;
 }
-.fas {
-  color: #ffae03;
-}
 #temperature {
+  line-height: 25px;
   padding: 5px;
 }

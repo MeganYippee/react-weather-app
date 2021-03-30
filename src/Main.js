@@ -4,11 +4,13 @@ import axios from "axios";
 import Forecast from "./Forecast";
 import Formatted from "./Formatted";
 import "bootstrap/dist/css/bootstrap.css";
+import WeatherIcon from "./WeatherIcon.js";
 
 export default function Header(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
+    console.log(response.data.weather[0].icon);
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
@@ -16,7 +18,7 @@ export default function Header(props) {
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
       date: new Date(response.data.dt * 1000),
-      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
       city: response.data.name,
     });
   }
@@ -78,11 +80,7 @@ export default function Header(props) {
               </div>
               <div className="col-6">
                 <h1>
-                  <img
-                    className="icon"
-                    src={weatherData.icon}
-                    alt="weather icon"
-                  />
+                  <WeatherIcon code={weatherData.icon} />
 
                   <span id="temperature">
                     {Math.round(weatherData.temperature)}
