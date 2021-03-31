@@ -4,11 +4,12 @@ export default function WeatherTemp(props) {
   const [unit, setUnit] = useState("fah");
   function showCel(event) {
     event.preventDefault();
-    setUnit("Celcius");
+    setUnit("celcius");
   }
 
   function showFah(event) {
     event.preventDefault();
+    setUnit("fah");
   }
 
   if (unit === `fah`) {
@@ -16,10 +17,7 @@ export default function WeatherTemp(props) {
       <div className="WeatherTemp">
         <span id="temperature">{Math.round(props.fah)}</span>
         <span className="units">
-          <a href="/" id="fahrenheit">
-            °F
-          </a>{" "}
-          |
+          °F |
           <a href="/" id="celcius" onClick={showCel}>
             {" "}
             °C
@@ -28,18 +26,16 @@ export default function WeatherTemp(props) {
       </div>
     );
   } else {
+    let celcius = ((props.fah - 32) * 5) / 9;
+
     return (
       <div>
-        <span id="temperature">{Math.round(props.fah)}</span>
+        <span id="temperature">{Math.round(celcius)}</span>
         <span className="units">
           <a href="/" id="fahrenheit" onClick={showFah}>
             °F
           </a>{" "}
-          |
-          <a href="/" id="celcius">
-            {" "}
-            °C
-          </a>
+          | °C
         </span>
       </div>
     );
