@@ -78,7 +78,7 @@ export default function Header(props) {
                   </span>
                 </h4>
               </div>
-              <div className="col-2">
+              <div className="col-1">
                 <h1>
                   <WeatherIcon code={weatherData.icon} />
                 </h1>
