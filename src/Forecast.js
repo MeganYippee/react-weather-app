@@ -1,6 +1,8 @@
 import "./Forecast.css";
 import ReactAnimatedWeather from "react-animated-weather";
 
+//<p className="next">In the next few days...</p>
+
 export default function Forecast() {
   return (
     <div className="container bottom">

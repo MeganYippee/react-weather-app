@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import Formatted from "./Formatted";
+import WeatherIcon from "./WeatherIcon.js";
+import WeatherTemp from "./WeatherTemp";
+import "bootstrap/dist/css/bootstrap.css";
 import "./Main.css";
 import axios from "axios";
-import Forecast from "./Forecast";
-import Formatted from "./Formatted";
-import "bootstrap/dist/css/bootstrap.css";
-import WeatherIcon from "./WeatherIcon.js";
 
 export default function Header(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -82,29 +82,7 @@ export default function Header(props) {
                 <h1>
                   <WeatherIcon code={weatherData.icon} />
 
-                  <span id="temperature">
-                    {Math.round(weatherData.temperature)}
-                  </span>
-                  <span className="units">
-                    <button
-                      className="btn btn-link btn-lg"
-                      rel="noreferrer"
-                      href="#"
-                      id="fahrenheit"
-                    >
-                      °F
-                    </button>{" "}
-                    |
-                    <button
-                      className="btn btn-link btn-lg"
-                      rel="noreferrer"
-                      href="#"
-                      id="celcius"
-                    >
-                      {" "}
-                      °C
-                    </button>
-                  </span>
+                  <WeatherTemp fah={weatherData.temperature} />
                   <br />
                   <div className="content" align="center">
                     <button
@@ -119,9 +97,6 @@ export default function Header(props) {
               </div>
             </div>
           </div>
-
-          <p className="next">In the next few days...</p>
-          <Forecast />
           {form}
         </div>
       </div>
