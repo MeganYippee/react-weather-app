@@ -78,10 +78,13 @@ export default function Header(props) {
                   </span>
                 </h4>
               </div>
-              <div className="col-6">
+              <div className="col-2">
                 <h1>
                   <WeatherIcon code={weatherData.icon} />
-
+                </h1>
+              </div>
+              <div className="col">
+                <h1>
                   <WeatherTemp fah={weatherData.temperature} />
                   <br />
                   <div className="content" align="center">
