@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Formatted from "./Formatted";
 import WeatherIcon from "./WeatherIcon.js";
 import WeatherTemp from "./WeatherTemp";
+import Forecast from "./Forecast";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Main.css";
 import axios from "axios";
@@ -87,18 +88,11 @@ export default function Header(props) {
                 <h1>
                   <WeatherTemp fah={weatherData.temperature} />
                   <br />
-                  <div className="content" align="center">
-                    <button
-                      type="button"
-                      className="btn btn-primary pull-right"
-                      id="current-location"
-                    >
-                      Current Location
-                    </button>
-                  </div>
                 </h1>
               </div>
             </div>
+            <p className="next">In the next few days...</p>
+            <Forecast />
           </div>
           {form}
         </div>
