@@ -11,9 +11,9 @@ export default function Header(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
-    console.log(response.data.weather[0].icon);
     setWeatherData({
       ready: true,
+      coord: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -92,7 +92,7 @@ export default function Header(props) {
               </div>
             </div>
             <p className="next">In the next few days...</p>
-            <Forecast />
+            <Forecast coord={weatherData.coord} />
           </div>
           {form}
         </div>

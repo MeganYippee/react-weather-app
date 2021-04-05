@@ -1,38 +1,40 @@
+import React, { useState } from "react";
 import "./Forecast.css";
-import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
+import ForecastDay from "./ForecastDay";
 
 //<p className="next">In the next few days...</p>
 
-export default function Forecast() {
+export default function Forecast(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
   function handleForecast(response) {
-    console.log(response.data);
+    setForecast(response.data.daily);
+    setLoaded(true);
   }
 
-  let apiKey = "2e24fad2691944b008429f223f37670a";
-  let lon = 40.7;
-  let lat = 74;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-  axios.get(apiUrl).then(handleForecast);
-
-  return (
-    <div className="container bottom">
-      <div className="row forecast">
-        <div class="col">
-          <h5>
-            Sat.
-            <br />
-            <ReactAnimatedWeather
-              icon="CLEAR_DAY"
-              color="goldenrod"
-              size={30}
-              animate={true}
-            />{" "}
-            <br />
-            75° F
-          </h5>
+  if (loaded) {
+    return (
+      <div className="container bottom">
+        <div className="row forecast">
+          {forecast.map(function (dailyForecast, index) {
+            if (index < 5) {
+              return (
+                <div class="col" key={index}>
+                  <ForecastDay data={dailyForecast} />
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "2e24fad2691944b008429f223f37670a";
+    let lon = props.coord.lon;
+    let lat = props.coord.lat;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(handleForecast);
+    return null;
+  }
 }
