@@ -8,6 +8,10 @@ h3 {
   padding-top: 30px;
   text-align: center;
 }
+form {
+  padding-top: 80px;
+  margin: 0px;
+}
 .card {
   border-radius: 20px;
   font-family: poppins, sans-serif;
@@ -33,10 +37,7 @@ h3 {
   padding: 40px auto;
   text-align: center;
 }
-.card-text {
-  padding-top: 30px;
-  margin: 0px;
-}
+
 #temperature {
   line-height: 25px;
   padding: 5px;

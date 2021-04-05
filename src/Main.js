@@ -41,11 +41,15 @@ export default function Header(props) {
 
   let form = (
     <div className="seach">
-      <p className="card-text">Search for another city</p>
-      <form id="search" action="text" onSubmit={handleSubmit}>
+      <form
+        className="card-text"
+        id="search"
+        action="text"
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
-          placeholder="Search for a city"
+          placeholder="  Search for a city"
           name="search"
           className="search"
           onChange={handleNewCity}
@@ -75,6 +79,7 @@ export default function Header(props) {
                   Wind: {Math.round(weatherData.wind)} mph
                   <br />
                   <span className="text-capitalize">
+                    {" "}
                     {weatherData.description}
                   </span>
                 </h4>
