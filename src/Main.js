@@ -80,7 +80,7 @@ export default function Header(props) {
                   <br />
                   <span className="text-capitalize">
                     {" "}
-                    {weatherData.description}
+                    vvvvvvv{weatherData.description}
                   </span>
                 </h4>
               </div>
